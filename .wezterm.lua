@@ -35,7 +35,7 @@ wezterm.on("update-right-status", function(window, pane)
 		return string.gsub(s, "(.*[" .. PATH_SEPARATOR .. "])(.*)", "%2")
 	end
 	local dirname = function(s)
-		return string.gsub(s, "(.*[//])(.*)(/.*)", "%2")
+		return string.gsub(s, "(.*[//])(.*)", "%2")
 	end
 	local cwd = dirname(pane:get_current_working_dir())
 	-- Current command
@@ -61,7 +61,7 @@ wezterm.on("update-right-status", function(window, pane)
 end)
 
 -- Fonts
-config.font_size = 12
+config.font_size = 13
 config.font = wezterm.font_with_fallback({
 	{ family = "MesloLGM Nerd Font Mono", scale = 1.2 },
 	{ family = "JetBrainsMono Nerd Font", scale = 1.2 },
@@ -72,6 +72,23 @@ config.window_decorations = "RESIZE"
 config.window_close_confirmation = "AlwaysPrompt"
 config.scrollback_lines = 3000
 config.default_workspace = "home"
+config.window_padding = {
+  left = '1cell',
+  right = '1cell',
+  top = '0.5cell',
+  bottom = '0.2cell',
+}
+
+config.window_frame = {
+  border_left_width = '0.2cell',
+  border_right_width = '0.2cell',
+  border_bottom_height = '0.2cell',
+  border_top_height = '0.22cell',
+  border_left_color = 'grey',
+  border_right_color = 'grey',
+  border_bottom_color = 'grey',
+  border_top_color = 'grey',
+}
 
 -- Keys
 config.leader = {key = "w", mods = "CTRL", timeout_milliseconds = 1000 }
